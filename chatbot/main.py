@@ -9,7 +9,12 @@ main.py
 FastAPI application entry point.
 """
 
+import os
+import sys
 from pathlib import Path
+
+# Add current directory to path for Vercel subdirectory support
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
