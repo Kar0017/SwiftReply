@@ -39,6 +39,12 @@ class ChatResponse(BaseModel):
     session_id: str
 
 
+class FeedbackRequest(BaseModel):
+    session_id: str
+    message: str
+    rating: str  # "up" or "down"
+
+
 # ── Endpoints ─────────────────────────────────────────────────────────────────
 
 @router.post("/chat", response_model=ChatResponse)
@@ -91,3 +97,9 @@ async def get_logs(n: int = 50) -> dict:
     """Return the last *n* conversation log entries (default 50)."""
     entries = read_recent_logs(n=min(n, 200))
     return {"count": len(entries), "entries": entries}
+
+
+@router.post("/feedback")
+async def feedback(req: FeedbackRequest):
+    logger.info(f"Feedback [{req.rating}] for session {req.session_id}")
+    return {"ok": True}
