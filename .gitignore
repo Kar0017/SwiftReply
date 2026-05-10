@@ -1,0 +1,19 @@
+# Virtual environments
+venv/
+env/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDEs
+.vscode/
+.idea/
+
+# Agent tools
+.agents/
+.claude/
+.tmp/

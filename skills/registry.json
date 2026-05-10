@@ -1,0 +1,26 @@
+{
+  "impeccable": {
+    "capabilities": [],
+    "tags": [],
+    "mcp_servers": [],
+    "invoke": "See impeccable.md"
+  },
+  "caveman": {
+    "capabilities": [],
+    "tags": [],
+    "mcp_servers": [],
+    "invoke": "See caveman.md"
+  },
+  "design-extract": {
+    "capabilities": [],
+    "tags": [],
+    "mcp_servers": [],
+    "invoke": "See design-extract.md"
+  },
+  "browser-harness": {
+    "capabilities": [],
+    "tags": [],
+    "mcp_servers": [],
+    "invoke": "See browser-harness.md"
+  }
+}

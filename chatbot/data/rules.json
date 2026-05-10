@@ -1,0 +1,62 @@
+[
+  {
+    "id": "faq_001",
+    "patterns": ["what are your hours", "when are you open", "opening time", "business hours", "what time do you open", "closing time"],
+    "response": "We are open Monday to Saturday, 9 AM to 6 PM. We are closed on Sundays and public holidays.",
+    "category": "hours"
+  },
+  {
+    "id": "faq_002",
+    "patterns": ["do you offer refunds", "refund policy", "money back", "can i get a refund", "return policy", "how do i return"],
+    "response": "Yes, we offer full refunds within 30 days of purchase. Items must be in original condition. Contact support@example.com to initiate a return.",
+    "category": "policy"
+  },
+  {
+    "id": "faq_003",
+    "patterns": ["how can i contact you", "contact info", "email address", "phone number", "get in touch", "reach you", "customer support"],
+    "response": "You can reach us at support@example.com or call +1-800-555-0199. Our support team is available Mon–Sat, 9 AM to 6 PM.",
+    "category": "contact"
+  },
+  {
+    "id": "faq_004",
+    "patterns": ["what products do you sell", "your products", "what do you offer", "what do you make", "product catalog", "items available"],
+    "response": "We sell handcrafted furniture, home decor, and custom woodwork. Browse our full catalog at example.com/products.",
+    "category": "products"
+  },
+  {
+    "id": "faq_005",
+    "patterns": ["shipping time", "how long does delivery take", "when will i get my order", "delivery estimate", "how fast do you ship", "shipping duration"],
+    "response": "Standard shipping takes 5–7 business days. Express shipping (2–3 days) is available at checkout for an additional fee.",
+    "category": "shipping"
+  },
+  {
+    "id": "faq_006",
+    "patterns": ["how much does it cost", "pricing", "price list", "how much is", "cost of", "what is the price", "rates"],
+    "response": "Our pricing varies by product. Furniture starts at $299, home decor from $29, and custom woodwork is quoted individually. Visit example.com/pricing for full details.",
+    "category": "pricing"
+  },
+  {
+    "id": "faq_007",
+    "patterns": ["warranty", "guarantee", "product warranty", "how long is the warranty", "is it covered", "warranty period"],
+    "response": "All our products come with a 2-year craftsmanship warranty. Defects due to manufacturing are covered at no cost. Normal wear and tear is excluded.",
+    "category": "warranty"
+  },
+  {
+    "id": "faq_008",
+    "patterns": ["custom order", "custom made", "bespoke", "personalized item", "can you make something custom", "made to order", "custom furniture"],
+    "response": "Yes! We love custom orders. Share your design ideas via support@example.com or our custom order form at example.com/custom. Turnaround is typically 4–6 weeks.",
+    "category": "custom_orders"
+  },
+  {
+    "id": "faq_009",
+    "patterns": ["payment methods", "how can i pay", "do you accept credit card", "payment options", "do you take paypal", "accepted payments"],
+    "response": "We accept Visa, Mastercard, American Express, PayPal, and Apple Pay. All transactions are secured with SSL encryption.",
+    "category": "payment"
+  },
+  {
+    "id": "faq_010",
+    "patterns": ["where are you located", "store location", "your address", "where is your shop", "physical store", "visit your store", "find your store"],
+    "response": "Our showroom is at 123 Craftsmen Ave, Portland, OR 97201. Free parking is available. We also operate fully online at example.com.",
+    "category": "location"
+  }
+]
