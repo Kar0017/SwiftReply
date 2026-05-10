@@ -281,6 +281,12 @@ The easiest way to deploy this bot is using **Railway** or **Render**.
     *   **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 4.  Add your `GROQ_API_KEY` in the **Environment** section.
 
+### Option 3: Vercel (Free Serverless)
+1.  **Commit** the `vercel.json` file to your repo.
+2.  Import your repository into [Vercel](https://vercel.com/).
+3.  Add `GROQ_API_KEY` to the **Environment Variables** in the Vercel dashboard.
+4.  **Note**: Vercel is stateless. Conversation logs saved to `.jsonl` files will not persist between sessions. For persistent logging, consider connecting a database like Supabase or MongoDB.
+
 ## 🗺️ Roadmap
 
 - [ ] Streaming LLM responses (word-by-word)
