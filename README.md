@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
-*A smart FAQ + LLM hybrid chatbot for small businesses, built with FastAPI and Groq AI.*
+_A smart FAQ + LLM hybrid chatbot for small businesses, built with FastAPI and Groq AI._
 
 ---
 
@@ -17,6 +17,7 @@ Business Assistant provides an intelligent, cost-effective customer support solu
 ## 🚀 Features
 
 ### Core Chatbot
+
 - [x] Fuzzy FAQ matching with configurable threshold (RapidFuzz)
 - [x] LLM fallback via Groq API for open-ended questions
 - [x] Greeting/stopword guard to prevent false matches
@@ -24,6 +25,7 @@ Business Assistant provides an intelligent, cost-effective customer support solu
 - [x] JSONL conversation logging with timestamps and metadata
 
 ### UI Features
+
 - [x] Dark teal-slate theme with smooth animations
 - [x] New Chat with confirmation modal
 - [x] Export chat as `.txt` file
@@ -36,6 +38,7 @@ Business Assistant provides an intelligent, cost-effective customer support solu
 - [x] Connection status indicator
 
 ### Developer Features
+
 - [x] `/api/health` endpoint with rules count
 - [x] `/api/test-llm` debug endpoint
 - [x] `/api/feedback` endpoint for rating logs
@@ -50,9 +53,6 @@ Business Assistant provides an intelligent, cost-effective customer support solu
 
 📸 Screenshot: Sidebar with chat history
 ![Sidebar](chatbot/public/SideBar.jpg)
-
-📸 Screenshot: Export and new chat modal
-> *(Place Export Modal Image Here)*
 
 ## ⚙️ How It Works
 
@@ -73,6 +73,7 @@ The hybrid architecture guarantees rapid, cost-free responses for high-volume, r
 ## 📡 Getting Started
 
 ### Prerequisites
+
 - Python 3.10+
 - A Groq API key ([Get one from the Groq Console](https://console.groq.com))
 
@@ -103,12 +104,13 @@ uvicorn main:app --reload --port 8000
 
 ## 🗂️ Configuration
 
-| Variable | Default | Description |
-|---|---|---|
-| `GROQ_API_KEY` | *required* | Your Groq API key |
-| `FUZZY_MATCH_THRESHOLD` | `82` | Min score for FAQ match (0-100) |
+| Variable                | Default    | Description                     |
+| ----------------------- | ---------- | ------------------------------- |
+| `GROQ_API_KEY`          | _required_ | Your Groq API key               |
+| `FUZZY_MATCH_THRESHOLD` | `82`       | Min score for FAQ match (0-100) |
 
 ### Customizing FAQ Rules
+
 Edit `data/rules.json` to define your specific business knowledge. Here is a minimal example showing the required fields:
 
 ```json
@@ -135,53 +137,59 @@ Edit `data/rules.json` to define your specific business knowledge. Here is a min
 
 ## 🤝 API Reference
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/chat` | Send a message, get a response |
-| GET | `/api/health` | Health check + rules count |
-| GET | `/api/logs` | Last 50 conversation entries |
-| GET | `/api/test-llm` | Debug LLM connectivity |
-| POST | `/api/feedback` | Submit thumbs up/down rating |
+| Method | Endpoint        | Description                    |
+| ------ | --------------- | ------------------------------ |
+| POST   | `/api/chat`     | Send a message, get a response |
+| GET    | `/api/health`   | Health check + rules count     |
+| GET    | `/api/logs`     | Last 50 conversation entries   |
+| GET    | `/api/test-llm` | Debug LLM connectivity         |
+| POST   | `/api/feedback` | Submit thumbs up/down rating   |
 
 <details>
 <summary><strong>POST /api/chat</strong></summary>
 
 **Request:**
+
 ```json
 {
   "message": "Do you offer refunds?",
   "history": [
-    {"role": "user", "content": "Hi"}, 
-    {"role": "assistant", "content": "Hello! How can I help?"}
+    { "role": "user", "content": "Hi" },
+    { "role": "assistant", "content": "Hello! How can I help?" }
   ]
 }
 ```
 
 **Response:**
+
 ```json
 {
   "response": "Yes, we offer full refunds within 30 days of purchase.",
   "source": "rule_match"
 }
 ```
+
 </details>
 
 <details>
 <summary><strong>GET /api/health</strong></summary>
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
   "rules_loaded": 15
 }
 ```
+
 </details>
 
 <details>
 <summary><strong>GET /api/logs</strong></summary>
 
 **Response:**
+
 ```json
 [
   {
@@ -193,24 +201,28 @@ Edit `data/rules.json` to define your specific business knowledge. Here is a min
   }
 ]
 ```
+
 </details>
 
 <details>
 <summary><strong>GET /api/test-llm</strong></summary>
 
 **Response:**
+
 ```json
 {
   "status": "success",
   "message": "LLM connection verified."
 }
 ```
+
 </details>
 
 <details>
 <summary><strong>POST /api/feedback</strong></summary>
 
 **Request:**
+
 ```json
 {
   "message_id": "12345",
@@ -219,11 +231,13 @@ Edit `data/rules.json` to define your specific business knowledge. Here is a min
 ```
 
 **Response:**
+
 ```json
 {
   "status": "success"
 }
 ```
+
 </details>
 
 ## 🏗️ Project Architecture
@@ -266,7 +280,7 @@ We welcome contributions to make this project even better.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-*Please open an issue first to discuss significant changes before submitting a PR.*
+_Please open an issue first to discuss significant changes before submitting a PR._
 
 ## 📄 License
 
