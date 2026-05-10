@@ -44,8 +44,6 @@ def log_conversation(
         matched_rule_id: FAQ rule id if rule_based, else None.
         fuzzy_score: RapidFuzz match score if rule_based, else None.
     """
-    LOGS_DIR.mkdir(parents=True, exist_ok=True)
-
     entry: dict = {
         "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z",
         "session_id": session_id,
@@ -56,8 +54,12 @@ def log_conversation(
         "fuzzy_score": round(fuzzy_score, 2) if fuzzy_score is not None else None,
     }
 
-    with open(LOG_FILE, "a", encoding="utf-8") as f:
-        f.write(json.dumps(entry) + "\n")
+    try:
+        LOGS_DIR.mkdir(parents=True, exist_ok=True)
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry) + "\n")
+    except Exception as e:
+        logger.warning("Could not write to log file (read-only filesystem): %s", e)
 
     logger.info(
         "Logged | session=%s type=%s rule=%s score=%s",
