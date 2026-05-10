@@ -46,10 +46,10 @@ Business Assistant provides an intelligent, cost-effective customer support solu
 ## 📸 Screenshots
 
 📸 Screenshot: Chat interface showing FAQ and AI responses
-> *(Place Chat Interface Image Here)*
+![Chat Interface](chatbot/public/ChatInterface.jpg)
 
 📸 Screenshot: Sidebar with chat history
-> *(Place Sidebar Image Here)*
+![Sidebar](chatbot/public/SideBar.jpg)
 
 📸 Screenshot: Export and new chat modal
 > *(Place Export Modal Image Here)*
