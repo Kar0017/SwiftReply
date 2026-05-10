@@ -58,11 +58,11 @@ Business Assistant provides an intelligent, cost-effective customer support solu
 
 ```mermaid
 graph TD
-    A[User Message] --> B{Greeting Guard<br>(is it hi/hello/thanks?)}
+    A[User Message] --> B{"Greeting Guard<br>(is it hi/hello/thanks?)"}
     B -- Yes --> C[Return Greeting Response]
-    B -- No --> D{Fuzzy Rule Matching<br>(threshold: 82)}
+    B -- No --> D{"Fuzzy Rule Matching<br>(threshold: 82)"}
     D -- Match >= 82 --> E[Return FAQ Response]
-    D -- No match --> F[Groq LLM API<br>(with last 6 turns context)]
+    D -- No match --> F["Groq LLM API<br>(with last 6 turns context)"]
     F --> G[Log to JSONL + Return Response]
     E --> G
     C --> G
