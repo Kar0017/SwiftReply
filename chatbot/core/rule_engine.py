@@ -25,17 +25,29 @@ _pattern_map: list[tuple[str, dict]] = []  # (pattern, rule) flat list
 
 
 def load_rules() -> int:
-    """Load rules.json and build flat pattern→rule map. Returns rule count."""
+    """Load rules.json with error handling for deployment environments."""
     global _rules, _pattern_map
-    with open(RULES_PATH, "r", encoding="utf-8") as f:
-        _rules = json.load(f)
-
+    _rules = []
     _pattern_map = []
-    for rule in _rules:
-        for pattern in rule["patterns"]:
-            _pattern_map.append((pattern.lower().strip(), rule))
+    
+    try:
+        if not RULES_PATH.exists():
+            logger.warning("Rules file not found at %s. Proceeding with 0 rules.", RULES_PATH)
+            return 0
+            
+        with open(RULES_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            # Handle both {"rules": [...]} and [...] formats
+            _rules = data.get("rules", []) if isinstance(data, dict) else data
 
-    logger.info("Loaded %d rules (%d patterns).", len(_rules), len(_pattern_map))
+        for rule in _rules:
+            for pattern in rule["patterns"]:
+                _pattern_map.append((pattern.lower().strip(), rule))
+
+        logger.info("Successfully loaded %d rules (%d patterns).", len(_rules), len(_pattern_map))
+    except Exception as e:
+        logger.error("Failed to load rules: %s", e)
+        
     return len(_rules)
 
 

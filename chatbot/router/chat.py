@@ -99,6 +99,16 @@ async def get_logs(n: int = 50) -> dict:
     return {"count": len(entries), "entries": entries}
 
 
+@router.get("/debug")
+async def debug():
+    import os
+    return {
+        "cwd": os.getcwd(),
+        "has_groq_key": bool(os.getenv("GROQ_API_KEY")),
+        "files_in_data": os.listdir(Path(__file__).parent.parent / "data") if (Path(__file__).parent.parent / "data").exists() else "DIR_MISSING",
+        "fuzzy_threshold": os.getenv("FUZZY_MATCH_THRESHOLD")
+    }
+
 @router.post("/feedback")
 async def feedback(req: FeedbackRequest):
     logger.info(f"Feedback [{req.rating}] for session {req.session_id}")
