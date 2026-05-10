@@ -259,6 +259,28 @@ Edit `data/rules.json` to define your specific business knowledge. Here is a min
 3. **How to adjust the LLM system prompt in `llm_client.py`**
    Open `core/llm_client.py` and modify the system prompt string to reflect your business's tone and constraints (e.g., "You are a helpful, enthusiastic assistant for a boutique coffee shop. Keep answers under 3 sentences.").
 
+## 🚀 Deployment
+
+The easiest way to deploy this bot is using **Railway** or **Render**.
+
+### Option 1: Railway (Recommended)
+1.  **Fork** this repository.
+2.  Login to [Railway.app](https://railway.app/).
+3.  Click **New Project** > **Deploy from GitHub repo** > Select your repo.
+4.  In the service settings:
+    *   **Root Directory**: Set to `chatbot`.
+    *   **Environment Variables**: Add `GROQ_API_KEY` with your API key.
+5.  Railway will detect the `Procfile` and deploy automatically.
+
+### Option 2: Render
+1.  Create a **New Web Service** on Render.
+2.  Connect your GitHub repository.
+3.  Set the following:
+    *   **Root Directory**: `chatbot`
+    *   **Build Command**: `pip install -r requirements.txt`
+    *   **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+4.  Add your `GROQ_API_KEY` in the **Environment** section.
+
 ## 🗺️ Roadmap
 
 - [ ] Streaming LLM responses (word-by-word)
