@@ -55,8 +55,12 @@ _rules_count: int = 0
 async def on_startup() -> None:
     """Load FAQ rules and confirm readiness."""
     global _rules_count
-    _rules_count = load_rules()
-    print(f"[OK] Chatbot ready -- {_rules_count} FAQ rules loaded.")
+    try:
+        _rules_count = load_rules()
+        print(f"[OK] Chatbot ready -- {_rules_count} FAQ rules loaded.")
+    except Exception as e:
+        print(f"[ERROR] Startup rule loading failed: {e}")
+        _rules_count = 0
 
 
 # ── Routes ────────────────────────────────────────────────────────────────────

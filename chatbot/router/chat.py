@@ -4,6 +4,7 @@ POST /api/chat — hybrid rule-based + LLM chat endpoint.
 """
 
 import logging
+from pathlib import Path
 from typing import Any, Literal, Optional
 
 from fastapi import APIRouter
